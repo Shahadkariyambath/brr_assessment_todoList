@@ -1,0 +1,27 @@
+body{
+    margin: 0;
+    background-color: #575857;
+    font-family: sans-serif;
+}
+
+.todo-container{
+    width: 350px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+}
+
+.input-section{
+    background-color: #ececee;
+    padding: 18px;
+    border-radius: 5px;
+    box-shadow:  6px 6px 3px 2px #373737cc;
+}
+
+.input-section h1 {
+    margin: 0;
+    margin-bottom: 15px;
+    color: #ababaa;
+}
