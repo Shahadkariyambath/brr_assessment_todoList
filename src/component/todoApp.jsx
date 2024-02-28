@@ -35,8 +35,14 @@ export default function todoApp() {
         {list &&
           list.map((value, key) => (
             <li key={key}>
-              <input type="checkbox" />
-              <div className="value">{value}</div>
+              <div className="list-section">
+                <input type="checkbox" />
+                <div className="value">{value}</div>
+              </div>
+              <div className="action-bar">
+                <i className="fas fa-edit editIcon"></i>
+                <i className="fa fa-trash-alt" aria-hidden="true"></i>
+              </div>
             </li>
           ))}
       </ul>

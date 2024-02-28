@@ -7,15 +7,19 @@ body{
     align-items: center;
     height: 100vh;
 }
+
+
 .todo-container {
-    width: 350px;
+    width: 50vw;
     text-align: center;
     max-height: 90vh; 
 }
 
 
-
 .input-section{
+    position: sticky;
+    top: 0;
+    z-index: 1;
     background-color: #ececee;
     padding: 18px;
     border-radius: 5px;
@@ -45,8 +49,6 @@ ul{
     padding: 0;
 }
 
-
-
 ul li {
     list-style: none;
     background-color: #fff;
@@ -56,6 +58,8 @@ ul li {
     color: gray;
     box-shadow: 3px 3px 3px 2px #514d4d;
     display: flex;
+    justify-content: space-between; 
+    align-items: center; 
 }
 
 ul li input {
@@ -65,4 +69,33 @@ ul li input {
 
 ul li .value{
     color: #514d4d;
+}
+
+
+.list-section {
+    display: flex;
+    align-items: center;
+  }
+
+  .action-bar {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .action-bar i {
+    margin: 0 5px;
+    cursor: pointer;
+  }
+
+
+
+
+@media screen and (max-width: 600px) {
+    body{
+        align-items: normal;
+        margin: 20px;
+    }
+    .todo-container {
+        width: 90vw; /* Adjust width for smaller screens */
+    }
 }
