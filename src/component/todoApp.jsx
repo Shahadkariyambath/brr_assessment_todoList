@@ -19,9 +19,12 @@ export default function todoApp() {
   const editItem = (index) => {
     if (!item) {
       setItem(list.slice(index, index + 1)[0]);
-      const updatedList = [...list.slice(0, index), ...list.slice(index + 1)];
-      setList(updatedList);
+      setList(list.filter((data, key) => key !== index));
     }
+  };
+
+  const deleteItem = (index) => {
+    setList(list.filter((data, key) => key !== index));
   };
 
   return (
@@ -47,7 +50,10 @@ export default function todoApp() {
               </div>
               <div className="action-bar">
                 <i className="fas fa-edit" onClick={() => editItem(index)}></i>
-                <i className="fa fa-trash-alt" aria-hidden="true"></i>
+                <i
+                  className="fa fa-trash-alt"
+                  onClick={() => deleteItem(index)}
+                ></i>
               </div>
             </li>
           ))}
