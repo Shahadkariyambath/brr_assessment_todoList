@@ -8,15 +8,13 @@ body{
     height: 100vh;
 }
 
-
 .todo-container {
     width: 50vw;
     text-align: center;
     max-height: 90vh; 
 }
 
-
-.input-section{
+.input-container{
     position: sticky;
     top: 0;
     z-index: 1;
@@ -26,13 +24,32 @@ body{
     box-shadow:  3px 3px 3px 2px #373737cc;
 }
 
-.input-section h1 {
+.input-container h1 {
     margin: 0;
     margin-bottom: 15px;
     color: #514d4d;
 }
 
-.input-section input{
+.input-container .input-section {
+    position: relative;
+}
+
+.input-container .input-section button{
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 50px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: silver;
+}
+
+.input-container .input-section button:hover{
+    color: white;
+}
+.input-container input{
     border-radius: 5px;
     border: 1px solid silver;
     width: 100%;
@@ -40,7 +57,7 @@ body{
     box-sizing: border-box;
 }
 
-.input-section input::placeholder {
+.input-container input::placeholder {
     color:silver;
 }
 
@@ -87,15 +104,12 @@ ul li .value{
     cursor: pointer;
   }
 
-
-
-
 @media screen and (max-width: 600px) {
     body{
         align-items: normal;
         margin: 20px;
     }
     .todo-container {
-        width: 90vw; /* Adjust width for smaller screens */
+        width: 90vw; 
     }
 }

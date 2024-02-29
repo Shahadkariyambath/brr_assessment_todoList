@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import "@fortawesome/fontawesome-free/css/all.css";
 import "./todoApp.css";
 
 export default function todoApp() {
@@ -57,28 +58,31 @@ export default function todoApp() {
 
   return (
     <div className="todo-container">
-      <form className="input-section" onSubmit={submitList}>
-        <h1>Todo List</h1>
+      <form className="input-container" onSubmit={submitList}>
+        <h1>To-Do List</h1>
 
-        <input
-          type="text"
-          name="input"
-          value={item}
-          onChange={handleChange}
-          placeholder="Enter items..."
-        />
+        <div className="input-section">
+          <input
+            type="text"
+            name="input"
+            value={item}
+            onChange={handleChange}
+            placeholder="Enter items..."
+          />
+          <button type="submit">Add</button>
+        </div>
       </form>
       <ul>
         {todo &&
-          todo.map((value, index) => (
+          todo.map(({ list, checked }, index) => (
             <li key={index}>
               <div className="list-section">
                 <input
                   type="checkbox"
-                  checked={value.checked}
+                  checked={checked}
                   onChange={() => toggleChecked(index)}
                 />
-                <div className="value">{value.list}</div>
+                <div className="value">{list}</div>
               </div>
               <div className="action-bar">
                 <i className="fas fa-edit" onClick={() => editItem(index)}></i>
