@@ -35,7 +35,6 @@ This is a simple Todo List application built using React. Users can add, edit, a
 
 To start the development server, run:
 
-    ```bash
     npm run dev
 
 This will start the development server and open the application in your default web browser.
