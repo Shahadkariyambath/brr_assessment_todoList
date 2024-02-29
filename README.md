@@ -1,4 +1,4 @@
-# Todo List App
+# To-do List App
 
 This is a simple Todo List application built using React. Users can add, edit, and delete tasks, as well as mark them as completed. The application uses `localStorage` to persist the tasks even after refreshing the page.
 
@@ -37,7 +37,7 @@ To start the development server, run:
 
     npm run dev
 
-This will start the development server and open the application in your default web browser.
+This will start the development server.
 
 ## Technologies Used
 
