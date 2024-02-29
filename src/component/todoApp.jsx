@@ -3,57 +3,68 @@ import "@fortawesome/fontawesome-free/css/all.css";
 import "./todoApp.css";
 
 export default function todoApp() {
-  const [item, setItem] = useState("");
-  const [todo, setTodo] = useState([]);
+  const [task, setTask] = useState("");
+  const [todoList, setTodoList] = useState([]);
+  const [editIndex, setEditIndex] = useState("");
 
   useEffect(() => {
-    const storedTodo = JSON.parse(localStorage.getItem("todoListStore"));
-    console.log("count", storedTodo);
+    const storedTodoList = JSON.parse(localStorage.getItem("todoListStore"));
 
-    if (storedTodo) {
-      setTodo(storedTodo);
+    if (storedTodoList) {
+      setTodoList(storedTodoList);
     }
   }, []);
 
   useEffect(() => {
-    localStorage.setItem("todoListStore", JSON.stringify(todo));
-  }, [todo]);
+    localStorage.setItem("todoListStore", JSON.stringify(todoList));
+  }, [todoList]);
 
-  const handleChange = (e) => {
-    setItem(e.target.value);
+  const handleChange = ({ target: { value } }) => {
+    setTask(value);
   };
 
   const submitList = (e) => {
     e.preventDefault();
-    if (!item || !item.trim()) return;
-    setTodo([...todo, { list: item, checked: false }]);
-    setItem("");
+
+    if (!task || !task.trim()) return;
+
+    if (editIndex !== "") {
+      const updatedTodoList = todoList.map((item, index) => {
+        if (index === editIndex) {
+          item.list = task;
+          setEditIndex("");
+        }
+        return item;
+      });
+
+      setTodoList(updatedTodoList);
+    } else {
+      setTodoList([...todoList, { list: task, checked: false }]);
+    }
+
+    setTask("");
   };
 
   const editItem = (index) => {
-    if (!item) {
-      setItem(todo[index].list);
-      setTodo(todo.filter((data, key) => key !== index));
-      console.log("editItem", todo);
+    if (!task) {
+      setTask(todoList[index].list);
+      setEditIndex(index);
     }
   };
 
   const deleteItem = (index) => {
-    setTodo(todo.filter((data, key) => key !== index));
-    console.log("deleteItem", todo);
+    setTodoList(todoList.filter((data, key) => key !== index));
   };
 
   const toggleChecked = (index) => {
-    const updatedTodo = todo.map((value, key) => {
+    const updatedTodo = todoList.map((value, key) => {
       if (key === index) {
         value.checked = !value.checked;
       }
       return value;
     });
 
-    setTodo(updatedTodo);
-
-    console.log("toggleChecked", todo[index].checked);
+    setTodoList(updatedTodo);
   };
 
   return (
@@ -65,16 +76,16 @@ export default function todoApp() {
           <input
             type="text"
             name="input"
-            value={item}
+            value={task}
             onChange={handleChange}
-            placeholder="Enter items..."
+            placeholder="Enter task..."
           />
           <button type="submit">Add</button>
         </div>
       </form>
       <ul>
-        {todo &&
-          todo.map(({ list, checked }, index) => (
+        {todoList &&
+          todoList.map(({ list, checked }, index) => (
             <li key={index}>
               <div className="list-section">
                 <input

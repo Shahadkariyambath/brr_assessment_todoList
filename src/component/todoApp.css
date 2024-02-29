@@ -1,115 +1,117 @@
-body{
-    margin: 0;
-    background-color: hsl(120, 1%, 34%);
-    font-family: sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+body {
+  margin: 0;
+  background-color: hsl(120, 1%, 34%);
+  font-family: sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 .todo-container {
-    width: 50vw;
-    text-align: center;
-    max-height: 90vh; 
+  width: 50vw;
+  text-align: center;
+  max-height: 90vh;
 }
 
-.input-container{
-    position: sticky;
-    top: 0;
-    z-index: 1;
-    background-color: #ececee;
-    padding: 18px;
-    border-radius: 5px;
-    box-shadow:  3px 3px 3px 2px #373737cc;
+.input-container {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background-color: #ececee;
+  padding: 18px;
+  border-radius: 5px;
+  box-shadow: 3px 3px 3px 2px #373737cc;
 }
 
 .input-container h1 {
-    margin: 0;
-    margin-bottom: 15px;
-    color: #514d4d;
+  margin: 0;
+  margin-bottom: 15px;
+  color: #514d4d;
 }
 
 .input-container .input-section {
-    position: relative;
+  position: relative;
 }
 
-.input-container .input-section button{
-    position: absolute;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    width: 50px;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    color: silver;
+.input-container .input-section button {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 50px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: silver;
 }
 
-.input-container .input-section button:hover{
-    color: white;
+.input-container .input-section button:hover {
+  color: white;
 }
-.input-container input{
-    border-radius: 5px;
-    border: 1px solid silver;
-    width: 100%;
-    padding: 10px;
-    box-sizing: border-box;
+.input-container input {
+  border-radius: 5px;
+  border: 1px solid silver;
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
 }
 
 .input-container input::placeholder {
-    color:silver;
+  color: silver;
 }
 
-ul{
-    text-align: left;
-    padding: 0;
+ul {
+  text-align: left;
+  padding: 0;
 }
 
 ul li {
-    list-style: none;
-    background-color: #fff;
-    padding: 10px;
-    border-radius: 5px;
-    margin-bottom: 10px;
-    color: gray;
-    box-shadow: 3px 3px 3px 2px #514d4d;
-    display: flex;
-    justify-content: space-between; 
-    align-items: center; 
+  list-style: none;
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  color: gray;
+  box-shadow: 3px 3px 3px 2px #514d4d;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 ul li input {
-    margin-right: 8px;
-    transform: scale(1.1);
+  margin-right: 8px;
+  transform: scale(1.2);
 }
 
-ul li .value{
-    color: #514d4d;
+ul li .value {
+  color: #514d4d;
 }
-
 
 .list-section {
-    display: flex;
-    align-items: center;
-  }
+  display: flex;
+  align-items: center;
+}
 
-  .action-bar {
-    display: inline-flex;
-    align-items: center;
-  }
+.list-section input {
+  cursor: pointer;
+}
+.action-bar {
+  display: inline-flex;
+  align-items: center;
+}
 
-  .action-bar i {
-    margin: 0 5px;
-    cursor: pointer;
-  }
+.action-bar i {
+  margin: 0 5px;
+  cursor: pointer;
+}
 
 @media screen and (max-width: 600px) {
-    body{
-        align-items: normal;
-        margin: 20px;
-    }
-    .todo-container {
-        width: 90vw; 
-    }
+  body {
+    align-items: normal;
+    margin: 20px;
+  }
+  .todo-container {
+    width: 90vw;
+  }
 }
